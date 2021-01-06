@@ -1,0 +1,1 @@
+ export const livetUrl = 'https://www.segmentationportal.com/Mosaic7'

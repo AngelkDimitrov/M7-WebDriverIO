@@ -1,1 +1,0 @@
- export const testUrl = 'https://www.segmentationportal.com/Mosaic7'

@@ -1,7 +1,7 @@
-import { testUrl } from '../Tests/Lib/env'
+import { livetUrl, testUrl } from './Lib/Helpers/env'
 describe('should navigate to skiny pahe ', () => {
     it('should Open SP ', () => {
-        browser.url(testUrl);
+        browser.url(livetUrl);
         browser.maximizeWindow();
         $('//*[@id="cookieBanner"]/button').click();
         expect(browser).toHaveUrl('https://www.segmentationportal.com/Mosaic7');
