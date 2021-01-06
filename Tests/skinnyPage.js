@@ -1,17 +1,20 @@
-import { livetUrl, testUrl } from './Lib/Helpers/env'
-describe('should navigate to skiny pahe ', () => {
-    it('should Open SP ', () => {
+import { livetUrl } from './Lib/Helpers/env'
+import skinnyPage from './Lib/Pages/skinnyPage'
+describe('should open SP7 and test skinny page ', () => {
+    
+    it('should Open SP and close cookie baner ', () => {
         browser.url(livetUrl);
         browser.maximizeWindow();
-        $('//*[@id="cookieBanner"]/button').click();
+        skinnyPage.closeCookiePopup();
         expect(browser).toHaveUrl('https://www.segmentationportal.com/Mosaic7');
         
     });
-    it('should click Ok on cookie baner and navigate to skunny page ', () => {
-        const login_button = $('#new-login-style > a > input');
-        $("#myCarousel > div > div.active.item > div.find-out").click();
+    it('should  navigate to skunny page ', () => {
+        const loginButton = $('#new-login-style > a > input');
+        skinnyPage.clickfindOutMore()
         expect(browser).toHaveTitle('Segments');
-        expect(login_button).toBeVisible();
+        expect(loginButton).toBeVisible();
+       
     });
     it('should reorder Mosaics', () => {
         const typeButon = $('#display-Types')
@@ -23,7 +26,7 @@ describe('should navigate to skiny pahe ', () => {
         $('#Age').click();
 
     });
-    it('should navigate to B group Panels page ', () => {
+    xit('should navigate to B group Panels page ', () => {
         const groupB = $('#B');
         groupB.waitForExist();
         groupB.click();
@@ -32,7 +35,7 @@ describe('should navigate to skiny pahe ', () => {
         $('//*[@id="question-panel5"]/a/img').click();
         $('#box-1').click();
     });
-    it('should navigate to Description page  ', () => {
+    xit('should navigate to Description page  ', () => {
         const description_button = $("/html/body/div[4]/div[1]/div[4]/div[1]/div[2]")
         description_button.click();
         $('#wordcloud_text_6').click
@@ -41,7 +44,7 @@ describe('should navigate to skiny pahe ', () => {
         description_button.click();
         $('#wordcloud_text_20').click();
     });
-    it('should navigate to Location page  ', () => {
+    xit('should navigate to Location page  ', () => {
         const location_button = $("/html/body/div[4]/div[1]/div[4]/div[1]/div[3]")
         location_button.click();
         const zoomIn = $('//*[@id="mymap"]/div[2]/div[1]/div/a[1]');
@@ -50,15 +53,15 @@ describe('should navigate to skiny pahe ', () => {
         zoomOut.click();
         browser.saveScreenshot('map.png')
     });
-    it('should navigate to Family Tree page  ', () => {
+    xit('should navigate to Family Tree page  ', () => {
         const family_tree_button = $("/html/body/div[4]/div[1]/div[4]/div[1]/div[4]")
         family_tree_button.click();
     });
-    it('should navigate to Photos page ', () => {
+    xit('should navigate to Photos page ', () => {
         const photos_button = $("/html/body/div[4]/div[1]/div[4]/div[1]/div[5]")
         photos_button.click();
     });
-    it('should navigate to Data page ', () => {
+    xit('should navigate to Data page ', () => {
         const data_button = $("/html/body/div[4]/div[1]/div[4]/div[1]/div[6]")
         data_button.click();
         browser.pause(3000);
