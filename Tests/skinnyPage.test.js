@@ -18,6 +18,7 @@ describe('should open SP7 and test skinny page ', () => {
     let descriptionText
     let zoomIn
     let zoomOut
+    let customCanvas
     
     beforeEach(() =>
     {experianLogo = $('#experian-logo')
@@ -34,6 +35,7 @@ describe('should open SP7 and test skinny page ', () => {
     descriptionText = $('#description > p:nth-child(2)')
     zoomIn = $('//*[@id="mymap"]/div[2]/div[1]/div/a[1]')
     zoomOut = $('//*[@id="mymap"]/div[2]/div[1]/div/a[2]')
+    customCanvas = $('#customCanvas')
     }
 
     )
@@ -79,24 +81,26 @@ describe('should open SP7 and test skinny page ', () => {
         skinnyPage.navigateToDescriptionPage();
         wordCloud3.click();  
     });
-    it('should navigate to Location page  ', () => {
+
+    it('should navigate to Location page and zoomIn and zoomOut ', () => {
         skinnyPage.navigateToLocationPage();
         zoomIn.click();
         zoomOut.click();
         browser.saveScreenshot('map.png')
     });
-    xit('should navigate to Family Tree page  ', () => {
-        const family_tree_button = $("//body/div[6]/div[1]/div[4]/div[1]/div[4]")
-        family_tree_button.click();
-        //click  J groups, assert text on pop
-        //try 
 
+    it('should navigate to Family Tree page and open custom option ', () => {
+        skinnyPage.navigateToFamilyTreePAge();
+        skinnyPage.clickCustomButton();
+        customCanvas.toBeDisplayed;
     });
+
     xit('should navigate to Photos page ', () => {
         const photos_button = $("//body/div[6]/div[1]/div[4]/div[1]/div[5]")
         photos_button.click();
         //add asertion
     });
+    
     xit('should navigate to Data page ', () => {
         const data_button = $("//body/div[6]/div[1]/div[4]/div[1]/div[6]")
         const top100Button = $("#showtop100Insights")

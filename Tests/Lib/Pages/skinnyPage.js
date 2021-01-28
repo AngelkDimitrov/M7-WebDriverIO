@@ -24,6 +24,12 @@ get descriptionPageButton (){
 get locationPageButton (){
     return $('//body/div[6]/div[1]/div[4]/div[1]/div[3]')
 }
+get familyTreePageButton(){
+    return $('//body/div[6]/div[1]/div[4]/div[1]/div[4]')
+}
+get customButton (){
+    return $('#display-custom')
+}
 
 closeCookiePopup () {
     this.cookieClose.waitForExist()
@@ -56,6 +62,15 @@ navigateToLocationPage (){
     this.locationPageButton.waitForExist()
     this.locationPageButton.click()
 }
+navigateToFamilyTreePAge (){
+    this.familyTreePageButton.waitForExist()
+    this.familyTreePageButton.click()
+}
+clickCustomButton (){
+    this.customButton.waitForClickable({ timeout: 2500 })
+    this.customButton.click()
+}
+
 
 }
 export default new skinnyPage()
