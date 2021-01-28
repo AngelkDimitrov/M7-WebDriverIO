@@ -15,6 +15,16 @@ get typesButton() {
 get groupsButton() {
     return $('#display-Groups')
 }
+get groupB(){
+    return $('#B')
+}
+get descriptionPageButton (){
+    return $('//body/div[6]/div[1]/div[4]/div[1]/div[2]')
+}
+get locationPageButton (){
+    return $('//body/div[6]/div[1]/div[4]/div[1]/div[3]')
+}
+
 closeCookiePopup () {
     this.cookieClose.waitForExist()
     this.cookieClose.click()
@@ -34,5 +44,18 @@ clickGroups () {
     this.groupsButton.waitForExist()
     this.groupsButton.click()
 }
+navigateToGroupB () {
+    this.groupB.waitForExist()
+    this.groupB.click()
+}
+navigateToDescriptionPage () {
+    this.descriptionPageButton.waitForExist()
+    this.descriptionPageButton.click()
+}
+navigateToLocationPage (){
+    this.locationPageButton.waitForExist()
+    this.locationPageButton.click()
+}
+
 }
 export default new skinnyPage()
