@@ -19,6 +19,11 @@ describe('should open SP7 and test skinny page ', () => {
     let zoomIn
     let zoomOut
     let customCanvas
+    let firstImage
+    let meanPercent
+    let pieChart
+    let top100InsightsButton
+    let top100InsightsTable
     
     beforeEach(() =>
     {experianLogo = $('#experian-logo')
@@ -36,6 +41,11 @@ describe('should open SP7 and test skinny page ', () => {
     zoomIn = $('//*[@id="mymap"]/div[2]/div[1]/div/a[1]')
     zoomOut = $('//*[@id="mymap"]/div[2]/div[1]/div/a[2]')
     customCanvas = $('#customCanvas')
+    firstImage = $('#scrollbar1 > a:nth-child(1) > img')
+    meanPercent = $('#means-icon-img')
+    pieChart = $('#pie-icon-img')
+    top100InsightsButton = $('#showtop100Insights')
+    top100InsightsTable = $('#data-graph')
     }
 
     )
@@ -95,23 +105,17 @@ describe('should open SP7 and test skinny page ', () => {
         customCanvas.toBeDisplayed;
     });
 
-    xit('should navigate to Photos page ', () => {
-        const photos_button = $("//body/div[6]/div[1]/div[4]/div[1]/div[5]")
-        photos_button.click();
-        //add asertion
+    it('should navigate to Photos page ', () => {
+       skinnyPage.navigateToPhotosPage();
+       expect(firstImage).isDisplayedInViewport
     });
-    
-    xit('should navigate to Data page ', () => {
-        const data_button = $("//body/div[6]/div[1]/div[4]/div[1]/div[6]")
-        const top100Button = $("#showtop100Insights")
-        const searchField = $("#searchInput")
-        data_button.waitForExist
-        data_button.click();
-        top100Button.waitForExist
-        top100Button.click
-        searchField.setValue('family ')
-        $("//body/div[@id='data-page']/div[1]/div[4]/div[4]/div[1]/div[3]").click()
 
-        //browser.pause(3000);
+    it('should navigate to Data page, search for var and display Top100 Insights ', () => {
+       skinnyPage.navigateToDataPage();
+       skinnyPage.searchForVariable('Family structure');
+       meanPercent.click();
+       pieChart.click();
+       top100InsightsButton.click();
+       expect(top100InsightsTable).toBeDisplayed;
     });
 });

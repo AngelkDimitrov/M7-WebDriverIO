@@ -1,34 +1,46 @@
 class skinnyPage {
 
-get cookieClose() {
+get cookieClose () {
     return $('//*[@id="cookieBanner"]/button')
 }
-get findOutMoreButton() {
+get findOutMoreButton () {
     return $('#myCarousel > div > div.active.item > div.find-out')
 }
-get logIn() {
+get logIn () {
     return $('#new-login-style > a > input')
 }
-get typesButton() {
+get typesButton () {
     return $('#display-Types')
 }
-get groupsButton() {
+get groupsButton () {
     return $('#display-Groups')
 }
-get groupB(){
+get groupB () {
     return $('#B')
 }
-get descriptionPageButton (){
-    return $('//body/div[6]/div[1]/div[4]/div[1]/div[2]')
+get descriptionPageButton () {
+    return $('//div[@class=\'sidebar-link link-text \']')
 }
-get locationPageButton (){
-    return $('//body/div[6]/div[1]/div[4]/div[1]/div[3]')
+get locationPageButton () {
+    return $('//div[@class=\'sidebar-link link-location \']')
 }
-get familyTreePageButton(){
-    return $('//body/div[6]/div[1]/div[4]/div[1]/div[4]')
+get familyTreePageButton() {
+    return $('//div[@class=\'sidebar-link link-tree \']')
 }
-get customButton (){
+get customButton () {
     return $('#display-custom')
+}
+get photosPageButton () {
+    return $('//div[@class=\'sidebar-link link-photos \']')
+}
+get dataPageButton () {
+    return $('//div[@class=\'sidebar-link link-data \']')
+}
+get searchField () {
+    return $('#searchInput')
+}
+get serachResults () {
+    return $('//strong[contains(.,\'Family structure\')]')
 }
 
 closeCookiePopup () {
@@ -58,19 +70,31 @@ navigateToDescriptionPage () {
     this.descriptionPageButton.waitForExist()
     this.descriptionPageButton.click()
 }
-navigateToLocationPage (){
+navigateToLocationPage () {
     this.locationPageButton.waitForExist()
     this.locationPageButton.click()
 }
-navigateToFamilyTreePAge (){
+navigateToFamilyTreePAge () {
     this.familyTreePageButton.waitForExist()
     this.familyTreePageButton.click()
 }
-clickCustomButton (){
+clickCustomButton () {
     this.customButton.waitForClickable({ timeout: 2500 })
     this.customButton.click()
 }
-
+navigateToPhotosPage () {
+    this.photosPageButton.waitForExist()
+    this.photosPageButton.click()
+}
+navigateToDataPage () {
+    this.dataPageButton.waitForExist()
+    this.dataPageButton.click()
+}
+searchForVariable (variable) {
+    this.searchField.waitForExist()
+    this.searchField.setValue(variable)
+    this.serachResults.click()
+}
 
 }
 export default new skinnyPage()
